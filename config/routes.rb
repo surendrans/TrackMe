@@ -1,4 +1,24 @@
 TrackMe::Application.routes.draw do
+  resources :waypoints
+
+  resources :trips
+
+
+ scope 'api' do
+    scope 'v1' do
+     post 'create_trip' => "api/v1/trips#create"
+     post 'create_waypoint' => "api/v1/waypoints#create"
+     post 'update_trip_status' => 'api/v1/trips#update_status'
+    end
+ end
+
+  resources :locations do
+ 	 collection do
+  		get :create_location_api
+  		post :create_location_api
+ 	 end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +68,7 @@ TrackMe::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+   root :to => "trips#index"
 
   # See how all your routes lay out with "rake routes"
 

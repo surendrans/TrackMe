@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Location:</b>
+  <%= @waypoint.location %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @waypoint.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @waypoint.longitude %>
+</p>
+
+<p>
+  <b>Client time:</b>
+  <%= @waypoint.client_time %>
+</p>
+
+<p>
+  <b>Trip:</b>
+  <%= @waypoint.trip %>
+</p>
+
+
+<%= link_to 'Edit', edit_waypoint_path(@waypoint) %> |
+<%= link_to 'Back', waypoints_path %>

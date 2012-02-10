@@ -1,0 +1,9 @@
+body {
+position: relative;
+padding-top: 90px;
+background-color: white;
+background-image: url(/images/ecg.png),url(/images/grid-new-18px-masked.png);
+background-repeat: repeat-x;
+background-position: 0 43px;
+font-family: Monaco,Andale Mono,Courier New,monospace;
+}

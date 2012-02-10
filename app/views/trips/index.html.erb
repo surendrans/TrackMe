@@ -1,0 +1,76 @@
+<h1>Listing trips</h1>
+<p  style="text-align:right" ><%= link_to 'New Trip', new_trip_path, :class=>"btn btn-info"%></p>
+
+<!--<script type="text/javascript" src="http://yui.yahooapis.com/combo?2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js&2.8.2r1/build/animation/animation-min.js"></script>-->
+<!--<img src="http://icons.iconarchive.com/icons/xenia/seasons-tweeting/128/fall-book-follow-me-icon.png" id = "follow_me" style="position: absolute; left: 534px; top: 42px;"> -->
+
+<table class="table table-bordered table-striped"> 
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Starting</th>
+    <th>Destination</th>
+    <th>Finished</th>
+    <th>Started</th>
+    <th colspan="3">Actions</th>
+  </tr>
+</thead>
+<tbody>
+<% @trips.each do |trip| %>
+  <tr>
+    <td><%= trip.name %></td>
+    <td><%= trip.starting %></td>
+    <td><%= trip.destination %></td>
+    <td><%= trip.finished %></td>
+    <td><%= trip.started %></td>
+    <td><%= link_to 'Show', trip %></td>
+    <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
+    <td><%= link_to 'Destroy', trip, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+<!--<canvas style="position:fixed;bottom:0px;left:0px;" id="canvas" height="200" width="1365" class="quadratic"></canvas>  -->
+<script>
+function moveRight() {
+var left_pos = parseInt($('#follow_me').css('left'));
+	if (left_pos > 1000) {
+		$('#follow_me').css('left', "200px");
+	} else {
+	$('#follow_me').css('left', left_pos + 1);
+	}
+var tim = setTimeout("moveRight()",20);	
+}
+moveRight();
+
+canvas = document.getElementById("canvas");
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 2;
+ctx.strokeStyle = "#333";
+ctx.beginPath();
+ctx.moveTo(0, 500);
+ctx.quadraticCurveTo(400,400,600,500);
+ctx.moveTo(600, 500);
+ctx.quadraticCurveTo(800,400,1000,480);
+ctx.moveTo(1000, 480);
+ctx.quadraticCurveTo(1300,300,1365,500);
+ctx.stroke();
+
+//el = "img";
+//attributes = {
+//            points: {
+//                to: [0, 500],
+//                control: [[400,400], [600, 500],[800,400], [1000, 480],[1300,300],[1365,500]]
+//            }
+//        }
+// myAnim = new YAHOO.util.Motion(el, attributes);
+    // start animation
+//    myAnim.duration = 100;
+//    myAnim.method = YAHOO.util.Easing.easeOut;
+//    myAnim.animate();
+       
+ 
+
+</script>

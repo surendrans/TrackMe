@@ -1,0 +1,35 @@
+<h1>Listing locations</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Lattitude</th>
+    <th>Longitude</th>
+    <th>Client time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @locations.each do |location| %>
+  <tr>
+    <td><%= location.name %></td>
+    <td><%= location.lattitude %></td>
+    <td><%= location.longitude %></td>
+    <td><%= location.client_time %></td>
+    <td><%= link_to 'Show', location %></td>
+    <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    <td><%= link_to 'Destroy', location, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<h1>Issues marked on Google Map</h1>
+<div class="container_auto">
+  <%= render :partial => "shared/show_markers_gmap" %>
+</div>
+<br />
+
+<%= link_to 'New Location', new_location_path %>
+
+
+

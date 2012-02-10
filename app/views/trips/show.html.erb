@@ -1,0 +1,75 @@
+<%trip_way_points = @trip.waypoints.order("created_at asc")%>
+
+<script>
+var center_latlong;
+
+<% start_point = {"lat" => @trip.start_latlong.split(',').first,
+					   "lng" => @trip.start_latlong.split(',').last} %>
+<% end_point = { "lat" => @trip.destination_latlong.split(',').first,
+      			  "lng" => @trip.destination_latlong.split(',').last}	 %>				   
+
+<% way_points  = trip_way_points.map{|wp| {"lat" => wp.latitude, "lng" => wp.longitude} }%>
+<% route = [start_point, way_points, end_point]  %>
+var points = '<%= ActiveSupport::JSON.encode((route.flatten)).html_safe %>';
+points = $.parseJSON(points);
+center_latlong  =  new google.maps.LatLng('<%= @trip.start_latlong.split(',').first%>', '<%= @trip.start_latlong.split(',').last%>');
+</script>
+<p id="notice"><%= notice %></p>
+
+<table  class="table table-bordered table-striped"> 
+<tr>
+<td>
+<b>Name</b> : <%= @trip.name %>
+</td>
+<td>
+ <b>From:</b>
+  <%= @trip.starting %>(<%= @trip.start_latlong %>)
+</td>
+<td>
+  <b>To:</b>
+  <%= @trip.destination %>(<%= @trip.destination_latlong %>)
+</td>
+<td>
+  <%= @trip.finished ? "Trip Over" : "Not yet finished"%>
+</td>
+<td>
+<%= link_to 'Edit', edit_trip_path(@trip), :class => "btn btn-info" %> 
+<%= link_to 'Back', trips_path , :class => "btn  btn-info"%>
+</td>
+</tr></table>
+
+<ul id="route_view" class="nav nav-tabs"> 
+            <li class="active">
+            <a href="#map" data-toggle="tab">Map VIew</a>
+            </li> 
+            <li>
+            <a href="#route" data-toggle="tab">Route View</a>
+            </li> 
+          </ul> 
+          <div class="tab-content">
+          <div class = "tab-pane active" id="map">
+          <%= render :partial => "shared/show_markers_gmap" %>
+          </div>
+            <div class = "tab-pane" id="route">
+            <table  class="table table-bordered table-striped"> 
+            <% @trip.waypoints.each do |wp| %>
+<tr>
+<td>
+            	<%= wp.location %></td><td>
+            	<b>System time:</b><%= wp.latitude %><%= wp.longitude %><%= wp.updated_at.strftime("%d/%m/%Y %H:%M") %>
+            	</td>
+            	<td>
+            	<b>Mobile Time:</b><%= wp.client_time ? wp.client_time.strftime("%d/%m/%Y %H:%M") : "No time data" %>
+            	</td></tr>
+            <% end %>
+          </div>
+                    </div>
+<style>
+	.container {
+	position :relative;
+	top:0px;
+	}
+</style>
+<script>
+$('#route_view a:first').tab('show');
+</script>

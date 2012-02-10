@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  location: MyString
+  latitude: MyString
+  longitude: MyString
+  client_time: 2012-02-03 11:23:42
+  trip: 
+
+two:
+  location: MyString
+  latitude: MyString
+  longitude: MyString
+  client_time: 2012-02-03 11:23:42
+  trip: 

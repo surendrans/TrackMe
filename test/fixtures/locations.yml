@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyText
+  lattitude: MyString
+  longitude: MyString
+  client_time: 2012-02-02 15:21:53
+
+two:
+  name: MyText
+  lattitude: MyString
+  longitude: MyString
+  client_time: 2012-02-02 15:21:53

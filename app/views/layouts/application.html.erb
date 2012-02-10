@@ -2,13 +2,38 @@
 <html>
 <head>
   <title>TrackMe</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag  'bootstrap', 'bootstrap-responsive', 'common' %>
+  <%= javascript_include_tag 'jquery.js','bootstrap.min.js', 'bootstrap-buttons.js', 'bootstrap.tabs.js' %>
   <%= csrf_meta_tag %>
+  <%= yield :deferred_js %>
 </head>
-<body>
+ <body data-spy="scroll" data-target=".subnav" data-offset="50"> 
+ <!-- Navbar
+    ================================================== --> 
+    <div class="navbar navbar-fixed-top"> 
+      <div class="navbar-inner"> 
+        <div class="container"> 
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+          </a> 
+          <a class="brand" style="-webkit-transform: rotate(9deg);color:#56A5EC;font-size:20px;font-weight:bold" href="/"><b>Track</b> M..<img src ="/images/smile.png" /> </a>  
+        
+          <div class="nav-collapse"> 
+            <ul class="nav"> 
+              <li class="active"> 
+                <a href="/trips">Trips</a> 
+              </li> 
+            </ul> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
 
+
+<div class="container"> 
 <%= yield %>
-
+</div>
 </body>
 </html>

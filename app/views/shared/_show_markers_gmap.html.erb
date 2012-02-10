@@ -1,0 +1,7 @@
+<div id="map_canvas" style="height:360px; width:100%;"></div>
+
+<% content_for :deferred_js do %>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<%= javascript_include_tag 'gmap_multiple_markers', 'markerclusterer' %>
+<% end %>
+

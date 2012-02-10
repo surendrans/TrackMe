@@ -1,0 +1,31 @@
+<h1>Listing waypoints</h1>
+
+<table>
+  <tr>
+    <th>Location</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Client time</th>
+    <th>Trip</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @waypoints.each do |waypoint| %>
+  <tr>
+    <td><%= waypoint.location %></td>
+    <td><%= waypoint.latitude %></td>
+    <td><%= waypoint.longitude %></td>
+    <td><%= waypoint.client_time %></td>
+    <td><%= waypoint.trip %></td>
+    <td><%= link_to 'Show', waypoint %></td>
+    <td><%= link_to 'Edit', edit_waypoint_path(waypoint) %></td>
+    <td><%= link_to 'Destroy', waypoint, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Waypoint', new_waypoint_path %>
