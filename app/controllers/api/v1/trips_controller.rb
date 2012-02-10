@@ -9,7 +9,7 @@ class Api::V1::TripsController < Api::V1::ApplicationController
 		else
 			response = {:success => false, :msg => "failed" }
 		end
-		puts response,"============================="
+	#	puts response,"============================="
 		render :json => response
 	end
 	
