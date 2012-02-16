@@ -5,5 +5,8 @@ After sigin Landing page :
 		Show the user trips(link)
 			Name,Current_location, Starting location, Destination,Status,View Wapoints(link) (show in green color if active)
 	
+New tab to show requests and have ablity to accept reject.
+
 Api : 
 	Accept request and create record in follow model and update the status in user request details
+	New tab to show requests and have ablity to accept reject.
