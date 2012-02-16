@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  sender_id: 1
+  receiver_id: 1
+  status: false
+  request_sent_on: 2012-02-15 16:06:42
+  request_confirmed_on: 2012-02-15 16:06:42
+
+two:
+  sender_id: 1
+  receiver_id: 1
+  status: false
+  request_sent_on: 2012-02-15 16:06:42
+  request_confirmed_on: 2012-02-15 16:06:42
