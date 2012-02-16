@@ -1,0 +1,37 @@
+<%= form_for(@user_request_detail) do |f| %>
+  <% if @user_request_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_request_detail.errors.count, "error") %> prohibited this user_request_detail from being saved:</h2>
+
+      <ul>
+      <% @user_request_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sender_id %><br />
+    <%= f.text_field :sender_id %>
+  </div>
+  <div class="field">
+    <%= f.label :receiver_id %><br />
+    <%= f.text_field :receiver_id %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.check_box :status %>
+  </div>
+  <div class="field">
+    <%= f.label :request_sent_on %><br />
+    <%= f.datetime_select :request_sent_on %>
+  </div>
+  <div class="field">
+    <%= f.label :request_confirmed_on %><br />
+    <%= f.datetime_select :request_confirmed_on %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

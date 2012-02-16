@@ -1,0 +1,57 @@
+<div class="row">
+ <div class="span12" style="margin-top:10px;border:2px solid #56A5EC;border-radius: 15px;">
+ <div class="span6" >
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal"} ) do |f| %>
+ <fieldset>
+     <legend>Sign In</legend>
+      <div class="control-group">
+<label class="control-label" for="input01">Email</label>
+ <div class="controls">
+  <%= f.text_field :email, :class=>"input-xlarge", :id=>"input01" %>
+  </div>
+  </div>
+
+  <div class="control-group">
+<label class="control-label" for="input02">Password</label>
+ <div class="controls">
+  <%= f.password_field :password , :class=>"input-xlarge", :id=>"input02"%>
+</div>
+  </div>
+  <% if devise_mapping.rememberable? -%>
+  
+  <div class="control-group">
+            <label class="control-label" for="optionsCheckbox">Remember Me</label>
+            <div class="controls">
+              <label class="checkbox">
+  <%= f.check_box :remember_me %> 
+  </label>
+            </div>
+          </div>
+  <% end -%>
+<div class="form-actions">
+<%= f.submit "Sign in", :class=>"btn btn-primary btn-large" %>
+            <button type="reset" class="btn btn-large">Cancel</button>
+          </div>
+   </fieldset>
+<% end %>
+
+<%#= render :partial => "devise/shared/links" %>
+</div>
+<!-- <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-2/24/man-icon.png" style="position: fixed; left: 1000px; top: 181px;">
+<img class="bus_image" src="http://icons.iconarchive.com/icons/aha-soft/standard-transport/32/tram-icon.png" style="position: fixed; left: 872px; top: 286px;"> -->
+<div class="span4" style="margin-top: 5px;min-height:300px;background:url(/images/map_with_man.png);">
+
+ </div>
+  </div>
+   </div>
+  
+  <style>
+  input {
+  padding : 12px;
+  font-size: 16px;
+  }
+  label {
+  font-size: 16px;
+  }
+  </style>

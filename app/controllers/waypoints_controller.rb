@@ -1,6 +1,7 @@
 class WaypointsController < ApplicationController
   # GET /waypoints
   # GET /waypoints.xml
+  before_filter :authenticate_user!
   def index
     @waypoints = Waypoint.all
 

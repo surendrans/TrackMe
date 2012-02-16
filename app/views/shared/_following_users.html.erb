@@ -1,0 +1,10 @@
+<% if @users.size > 0 %>
+<% @users.each do |user | %>
+
+	<%= user.email %>
+<% end %>
+<% else %>
+<div class="alert alert-info">
+  You aren't following any users
+</div>
+<% end %>

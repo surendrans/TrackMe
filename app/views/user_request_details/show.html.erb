@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sender:</b>
+  <%= @user_request_detail.sender_id %>
+</p>
+
+<p>
+  <b>Receiver:</b>
+  <%= @user_request_detail.receiver_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @user_request_detail.status %>
+</p>
+
+<p>
+  <b>Request sent on:</b>
+  <%= @user_request_detail.request_sent_on %>
+</p>
+
+<p>
+  <b>Request confirmed on:</b>
+  <%= @user_request_detail.request_confirmed_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_request_detail_path(@user_request_detail) %> |
+<%= link_to 'Back', user_request_details_path %>

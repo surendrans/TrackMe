@@ -1,0 +1,52 @@
+<div class="row">
+ <div class="span6" style="margin-top:10px;border:2px solid #56A5EC;border-radius: 15px;">
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form-horizontal"} ) do |f| %>
+ <fieldset>
+     <legend>Sign Up</legend>
+  <%= devise_error_messages! %>
+      <div class="control-group">
+<label class="control-label" for="input01">Email</label>
+ <div class="controls">
+
+  <%= f.email_field :email, :class => "input01 input-xlarge" %>
+</div>
+  </div>
+
+
+      <div class="control-group">
+<label class="control-label" for="input02">Password</label>
+ <div class="controls">
+  <%= f.password_field :password , :class => "input02 input-xlarge" %>
+</div>
+  </div>
+ <div class="control-group">
+<label class="control-label" for="input03">Password</label>
+ <div class="controls">
+
+  <%= f.password_field :password_confirmation , :class => "input02 input-xlarge" %>
+</div>
+  </div>
+
+
+<div class="form-actions">
+<%= f.submit "Sign Up", :class=>"btn btn-primary btn-large" %>
+            <button type="reset" class="btn btn-large">Cancel</button>
+          </div>
+   </fieldset>
+<% end %>
+
+<%#= render :partial => "devise/shared/links" %>
+
+ </div>
+  </div>
+  
+   <style>
+  input {
+  padding : 12px;
+  font-size: 16px;
+  }
+  label {
+  font-size: 16px;
+  }
+  </style>

@@ -1,0 +1,2 @@
+module UserRequestDetailsHelper
+end

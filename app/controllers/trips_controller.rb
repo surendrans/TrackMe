@@ -1,8 +1,9 @@
 class TripsController < ApplicationController
   # GET /trips
   # GET /trips.xml
+  before_filter :authenticate_user!
   def index
-    @trips = Trip.all
+    @trips = current_user.trips.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +41,7 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.xml
   def create
-    @trip = Trip.new(params[:trip])
+    @trip = current_user.trips.new(params[:trip])
 
     respond_to do |format|
       if @trip.save
@@ -80,4 +81,15 @@ class TripsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def watching_users
+  	@users = current_user.following_users
+  	render :action => 'users_list'
+  end
+  
+  def iam_watching
+  	  	@users = current_user.followers
+  	  	render :action => 'users_list'
+  end
+  
 end

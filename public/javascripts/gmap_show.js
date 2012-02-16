@@ -35,7 +35,8 @@ var myOptions = {
 var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 var marker = new google.maps.Marker({
      position: latlng,
-     map: map
+     map: map,
+     title: "helloworld"
      
 }); 
 

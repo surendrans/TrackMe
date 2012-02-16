@@ -3,7 +3,7 @@
 <head>
   <title>TrackMe</title>
   <%= stylesheet_link_tag  'bootstrap', 'bootstrap-responsive', 'common' %>
-  <%= javascript_include_tag 'jquery.js','bootstrap.min.js', 'bootstrap-buttons.js', 'bootstrap.tabs.js' %>
+  <%= javascript_include_tag 'jquery.js','jquery_ujs.js','bootstrap.min.js', 'bootstrap-buttons.js', 'bootstrap.tabs.js', 'underscore' %>
   <%= csrf_meta_tag %>
   <%= yield :deferred_js %>
 </head>
@@ -22,9 +22,28 @@
         
           <div class="nav-collapse"> 
             <ul class="nav"> 
+            <% if user_signed_in? %> 
               <li class="active"> 
                 <a href="/trips">Trips</a> 
               </li> 
+              <li > 
+                <a href="/users/iam_watching">Watching</a> 
+              </li> 
+               <li > 
+                <a href="/users/watching_me">Watchers</a> 
+              </li> 
+               <li > 
+                <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> 
+              </li> 
+              <% else %>
+               <li > 
+                <a href="/users/sign_in">Sign In</a> 
+              </li> 
+                             <li> 
+                <a href="/users/sign_up">Sign Up</a> 
+              </li> 
+
+              <% end %>
             </ul> 
           </div> 
         </div> 
@@ -32,7 +51,7 @@
     </div> 
 
 
-<div class="container"> 
+<div class="container" style="padding-top:30px"> 
 <%= yield %>
 </div>
 </body>

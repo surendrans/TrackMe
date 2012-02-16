@@ -1,0 +1,52 @@
+<ul id="following_view" class="nav nav-tabs" > 
+            <li class="active">
+            <a href="#following"  style="color:red" data-toggle="tab"><h3  style="color:#3A87AD">Following</h3></a>
+            </li> 
+            <li>
+            <a href="#follow"  data-toggle="tab"><h3 style="color:#3A87AD">Search & Follow</h3></a>
+            </li> 
+</ul> 
+
+
+  <div class="tab-content">
+          <div class = "tab-pane active" id="following">
+         <%= render :partial => "shared/following_users" %>
+          </div>
+			<div class = "tab-pane " id="follow">
+			<%= render :partial => "shared/search_and_follow" %>
+          </div>
+          
+   </div>
+
+
+        
+<script>
+_.templateSettings = {
+  interpolate : /\{\{(.+?)\}\}/g
+};
+
+$('.search_users').click(function() {
+	$.getJSON('/user_request_details/search_users?q=' + $('.user_email').val() , function(data) {
+	if (data.length > 0) {
+	var user_list = _.template("<div class='span3'>{{ email }}</div><div class='span3'><a href='#' data-id={{user_id}}' class='btn follow_user'>Follow</a></div>");
+	var user_emails =	_.map(data, function(user){
+	
+		return user_list({email: user.email, user_id: user.id});
+	}).join('');
+	$('.user_list').html(user_emails);} else {
+$('.user_list').html("<div class='span3'>No Users</div>");
+	}
+});
+});
+
+$('.follow_user').live('click', function() {
+alert('follow');
+$.getJSON('/user_request_details/send_user_request?following_id=' + $(this).data('id') , function(data) {
+	alert(data.message);
+});
+});
+
+$('#following_view a:first').tab('show');
+</script>
+
+

@@ -1,9 +1,19 @@
 TrackMe::Application.routes.draw do
+  resources :user_request_details do
+  collection do
+  get "search_users"
+  get "send_user_request"
+  end
+  end
+
+  devise_for :users
+
   resources :waypoints
 
   resources :trips
 
-
+		match "/users/watching_me" => "trips#watching_users"
+		match "/users/iam_watching" => "trips#iam_watching" 
  scope 'api' do
     scope 'v1' do
      post 'create_trip' => "api/v1/trips#create"
@@ -11,6 +21,20 @@ TrackMe::Application.routes.draw do
      post 'update_trip_status' => 'api/v1/trips#update_status'
     end
  end
+ 
+ scope 'api' do
+    scope 'v1' do
+      get 'get_authentication_token' => "api/v1/sessions#get_authentication_token"
+      get 'get_issues_for_mapping_posted_by_me' => "api/v1/issues#get_issues_for_mapping_posted_by_me"
+      get 'share_an_issue' => "api/v1/issues#share_an_issue_get"
+      post 'share_an_issue' => "api/v1/issues#share_an_issue"
+      post 'signup' => "api/v1/sessions#create_user"
+      get "get_issue/:id" => "api/v1/issues#get_issue"
+      get "get_recent_issues" => "api/v1/issues#get_recent_issues"
+      get "set_geolocation_for_issue" => "api/v1/issues#set_geolocation_for_issue"
+      get "set_geolocation_for_issue" => "api/v1/issues#set_geolocation_for_issue"
+    end
+  end
 
   resources :locations do
  	 collection do

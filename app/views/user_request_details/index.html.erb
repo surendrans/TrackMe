@@ -1,0 +1,31 @@
+<h1>Listing user_request_details</h1>
+
+<table>
+  <tr>
+    <th>Sender</th>
+    <th>Receiver</th>
+    <th>Status</th>
+    <th>Request sent on</th>
+    <th>Request confirmed on</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_request_details.each do |user_request_detail| %>
+  <tr>
+    <td><%= user_request_detail.sender_id %></td>
+    <td><%= user_request_detail.receiver_id %></td>
+    <td><%= user_request_detail.status %></td>
+    <td><%= user_request_detail.request_sent_on %></td>
+    <td><%= user_request_detail.request_confirmed_on %></td>
+    <td><%= link_to 'Show', user_request_detail %></td>
+    <td><%= link_to 'Edit', edit_user_request_detail_path(user_request_detail) %></td>
+    <td><%= link_to 'Destroy', user_request_detail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User request detail', new_user_request_detail_path %>

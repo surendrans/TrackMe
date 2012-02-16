@@ -4,12 +4,12 @@ gem 'rails', '3.0.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem "devise", "1.4.7"
 gem 'mysql'
 gem 'geokit'
 # Use unicorn as the web server
 # gem 'unicorn'
-
+gem "acts_as_follower"
 # Deploy with Capistrano
 # gem 'capistrano'
 
