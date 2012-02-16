@@ -14,6 +14,8 @@ TrackMe::Application.routes.draw do
 
 		match "/users/watching_me" => "trips#watching_users"
 		match "/users/iam_watching" => "trips#iam_watching" 
+		match "/users/notifications" => "trips#notifications" 
+		match "/users/req_handle"    => "trips#request_handle"
  scope 'api' do
     scope 'v1' do
      post 'create_trip' => "api/v1/trips#create"

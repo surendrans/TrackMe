@@ -33,6 +33,9 @@
                 <a href="/users/watching_me">Watchers</a> 
               </li> 
                <li > 
+                <a href="/users/notifications">Notifications(<%= User.find(current_user.id).requests.count if User.find(current_user.id).requests %>)</a> 
+              </li> 
+               <li > 
                 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> 
               </li> 
               <% else %>

@@ -91,5 +91,10 @@ class TripsController < ApplicationController
   	  	@users = current_user.followers
   	  	render :action => 'users_list'
   end
+
+  def request_handle
+
+   render :text=> "Success"
+  end
   
 end
