@@ -1,0 +1,9 @@
+After sigin Landing page : 
+	List of Following Users
+		emailid, last trip, View trips
+	View Trips
+		Show the user trips(link)
+			Name,Current_location, Starting location, Destination,Status,View Wapoints(link) (show in green color if active)
+	
+Api : 
+	Accept request and create record in follow model and update the status in user request details
